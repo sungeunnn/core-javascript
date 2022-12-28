@@ -7,5 +7,5 @@
 - [x] Strict Mode
 - [x] Global This
 - [x] Data Types
-- [ ] Type Conversion
+- [x] Type Conversion
 - [ ] Operations
