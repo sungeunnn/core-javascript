@@ -6,6 +6,6 @@
 - [x] Variables
 - [x] Strict Mode
 - [x] Global This
-- [ ] Data Types
+- [x] Data Types
 - [ ] Type Conversion
 - [ ] Operations
