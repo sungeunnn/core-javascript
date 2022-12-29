@@ -8,7 +8,8 @@
 - [x] Global This
 - [x] Data Types
 - [x] Type Conversion
-- [x] Operations
+- [x] Operations - 기본연산자 및 수학
+- [x] Operations - 비교연산자
 - [ ] Condition
 - [ ] Loop
 - [ ] Functions
