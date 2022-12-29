@@ -9,3 +9,13 @@
 - [x] Data Types
 - [x] Type Conversion
 - [ ] Operations
+- [ ] Condition
+- [ ] Loop
+- [ ] Functions
+- [ ] Objects
+- [ ] Symbol
+- [ ] Primitive Methods(Object Wrapper)
+- [ ] Number Type
+- [ ] String Type
+- [ ] Array Type
+- [ ] Array Methods
