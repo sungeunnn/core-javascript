@@ -28,17 +28,38 @@ Object.prototype.nickName = "tiger";
 
 console.log(Object.prototype.hasOwnProperty.call(javaScript, key));
 
-//let a = {} {skyblue, 9}
+
+/* 
+for~in문에서 객체 안의 대상을 파악하면 조상까지 올라가서 문제 생겨서 해결법은?
+객체 자신의(own) 속성(property)인지 확인(has)하는 방법 : hasownproperty
+그런데 hasownproperty가 함수 자체를 보호해주지않아 오염될 변질이 생겨서 해결법은?
+Object.prototype.hasOwnProperty.call(javaScript,key)
+*/
+
+//let a = {} {12, 10}
 // if({}.hashOwnProperty.call(javaScript, key)) 도 아래의 if 문 조건과 같다.
 
 for (let key in javaScript) {
-  // console.log(key);
+  /* for (let key in~)까지 하면 조상에 있는거 까지 가져오니까 if 로 한번더 확인하는거라고 생각 */
 
   if (Object.prototype.hasOwnProperty.call(javaScript, key)) {
     console.log(key);
   }
 }
 
+function hello(){
+  console.log(this);
+}
+
+hello.call('aaa');
 // for ~ in 문
 // - 객체 자신의 속성만 순환하려면?
 // - 배열 객체 순환에 사용할 경우?
+
+console.log("for~in===================================")
+let tens = [10,100,1000,10000];
+
+for (let value in tens) {
+  console.log("value = "+value);
+  console.log("tems[vlaue] = " + tens[value]);
+}
