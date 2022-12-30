@@ -35,10 +35,10 @@ let whichTruthy = false || "" || [2, 3].length || { thisIsFalsy: true }; //2
 
 //로그인 구현하기
 let userName = prompt("Who are you?", '');
-let correctPassword='1234a';
-if(userName.toLowerCase() === "admin"){
+let correctPassword= 'TheMaster';
+if(userName?.toLowerCase() === "admin"){
   let pw = prompt("Please input your password", '');
-  if (pw ===correctPassword) {
+  if (pw?.toLowerCase() ===correctPassword.toLowerCase()) {
     alert("Welcome!");
   }else if(pw === "Cancel"){
     alert("Canceled");
@@ -47,7 +47,7 @@ if(userName.toLowerCase() === "admin"){
   }
 }else if(userName ==="Cancel"){
   alert("Canceled");
-}else if ( userName === null) {
+}else if (userName === null || userName.replace(/\s*/g,'')==='') {
   alert( '취소되었습니다.' );
 }
 else{
