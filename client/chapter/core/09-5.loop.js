@@ -110,3 +110,12 @@ const randomUser = {
 // - for ~ in 문
 // - for ~ of 문
 // - 성능 비교 진단
+
+/* 
+
+  Object.entries
+  Object.keys
+  Object.values
+
+  
+*/
