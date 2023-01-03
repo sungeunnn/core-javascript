@@ -110,6 +110,7 @@ const bb = function (){};
 // 즉시 실행 함수 (표현)식
 // 즉시 호출될 수 있는 함수의 표현식
 // Immediately Invoked Function Expression
+
 let IIFE;
 
 //var 함수 스코프
