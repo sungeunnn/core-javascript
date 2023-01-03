@@ -112,10 +112,67 @@ const randomUser = {
 // - 성능 비교 진단
 
 /* 
+for(let key in randomUser){
+  let L1 = randomUser[key];
+  
+  if(({}).hasOwnProperty.call(randomUser,key)){
+    console.log('L1 : ' ,key);
+    if(typeof L1 === 'object'){
+      for(let key in L1){
+        let L2 = L1[key];
+        if(({}).hasOwnProperty.call(randomUser,key)){
+          console.log('\t L2 : ' ,key);
+          if(typeof L2 === 'object'){
+            
+          }
+        }
+      }
+    }
+  }
+  
+}
+ */
 
-  Object.entries
-  Object.keys
-  Object.values
+/* 
+Object.keys
+Object.values
+Object.entries
+ */
+
+
+// console.log(Object.values(randomUser));
+/* 
+for(let key of Object.keys(randomUser)){
+  console.log(key);
+}
+for(let values of Object.values(randomUser)){
+  console.log(values);
+}
+ */
+
+
+for(let keyValue of Object.entries(randomUser)){
+  let key = keyValue[0]
+  let value = keyValue[1]
+
+  console.log('L1 : ' ,key);
+
+  if(typeof value === 'object'){
+    for(let keyValue of Object.entries(value)){
+      let key = keyValue[0]
+      let value = keyValue[1]
+
+      console.log('\t L2 : ' ,key);
+    }
+  }
+  
+}
+
+/* 
+
+  Object.entries : object에 직접있는 enumerable 속성 [key, value] 쌍에 해당하는 배열 반환
+  Object.keys : 주어진 객체의 속성 이름들을 일반적인 반복문과 동일한 순서로 순환되는 열거할 수 있는 배열로 반환
+  Object.values : 파라미터로 전달된 객체가 가지는 열거 가능한 속성의 값들로 구성된 배열을 반환
 
   
 */
