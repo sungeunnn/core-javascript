@@ -77,14 +77,43 @@ const user = {
   },
 };
 
-console.log(user.totalGrades());
+// console.log(user.totalGrades());
 
 /* 다음 함수를 작성해봅니다. -------------------------------------------------- */
 
 // pow(numeric: number, powerCount: number): number;
-let pow;
+let pow = (numeric, powerCount) =>{
+  let result = 1;
+  for(let j=0; j<powerCount; j++){
+    result *= numeric;
+  }
+  return result;
+};
+
+//array의 인스턴스 reduce 사용
+let powExpression =(numeric, powerCount) => {
+  Array(powerCount).fill(null).reduce((acc)=>{
+    return acc * numeric
+  },1);
+  //위의 화살표 함수 짧게 줄인것
+  /* Array(powerCount).fill(null).reduce(acc=>acc * numeric,1) */
+}
+
+pow(2, 5);
 //반복문으로 거듭제곱 구현
 
 // repeat(text: string, repeatCount: number): string;
-let repeat;
+
+let repeat = (text, repeatCount) => {
+  let result = ''; 
+  for(let i=0; i<repeatCount; i++ ){
+     result += text;
+  }
+  return result;
+};
+
+
+let repeatExpression = (text, repeatCount) => Array(repeatCount).fill(null).reduce(acc => acc + text,'')
+repeat("hi", 5);
 //string을 repeatCount만큼 반복
+ 
