@@ -38,7 +38,7 @@ const shopOrder = {
   ],
   totalPrice(){
     //console.log(this.menu[0].price * this.menu[0].count);
-    return this.menu.reduce((acc,cur) => acc+cur.price * cur.count,0)
+     return this.menu.reduce((acc,cur) => acc+cur.price * cur.count,0)
   }
 };
 console.log(shopOrder.totalPrice());
