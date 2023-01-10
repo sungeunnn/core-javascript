@@ -12,6 +12,6 @@ module.exports = {
   },
   rules: {
     "no-unused-vars": "off",
-    "no-undef": "warn", /*import export  배우기 전이라서 오류 안뜨게 해줄려고 한 것 좋은방법 아님 (선언안한게 표시가 안됌)*/ 
+    "no-undef": "off", /*import export  배우기 전이라서 오류 안뜨게 해줄려고 한 것 좋은방법 아님 (선언안한게 표시가 안됌)*/ 
   },
 };
