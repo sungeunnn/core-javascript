@@ -11,20 +11,40 @@
 /* 이벤트 추가/제거 --------------------------------------------------------- */
 
 const first = getNode(".first");
+const ground = getNode(".ground");
+const ball = getNode(".ball");
+
 
 function handler() {
   console.log("hit!");
 
-  css('.second','display', 'none');
+  //css('.second','display', 'none');
 }
+first.addEventListener('click',handler);
 
 // first.addEventListener("click", handler);
 
 
+//축구공
+ground.addEventListener('click', function(e){
+  console.log(e.offsetX,e.offsetY);
 
-const off=bindEvent('.first','click',handler);
+  ball.style.transform = `translate(${e.offsetX - ball.offsetWidth / 2}px, ${e.offsetY- ball.offsetHeight / 2}px)`;
+})
 
+
+
+
+
+
+
+
+//bindEvent
+/* const off=bindEvent('.first','click',handler);
 //이벤트를 실행시키고 이벤트 off
-bindEvent('.second',click,off);
+bindEvent('.second','click',off);
+ */
+
+
 // - addEventListener
 // - removeEventListener
