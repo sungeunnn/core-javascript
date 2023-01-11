@@ -39,8 +39,6 @@ let size = getComputedStyle(first).fontSize;
 
 
 
-
-
 /* function css(node,prop,value){
   if(typeof node === 'string'){
     node = getNode(node);
@@ -60,5 +58,5 @@ let size = getComputedStyle(first).fontSize;
 // console.log(getCss('.first','font-size'));
 // setCss('.first','color','red');
 css('.first', 'font-size','100px');
-css('.first', 'font-size');
+console.log(css('.first', 'font-size'))
 // - getComputedStyle(element, [pseudoElement]) `읽기 전용`

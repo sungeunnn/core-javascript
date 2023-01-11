@@ -66,4 +66,4 @@ function setCss(node,prop,value){
   node.style[prop]=value;
 }
 const css = (node,prop,value) => {
-  !value? getCss(node,prop): setCss(node,prop,value)}
+  return !value? getCss(node,prop): setCss(node,prop,value)}
