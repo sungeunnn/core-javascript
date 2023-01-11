@@ -17,26 +17,22 @@ h1 {
   /* translate(-50%, -50%) */
 }
 
-
-div{
- 
+div {
 }
 
-.first{
+.first {
   /* background-color: dodgerblue !important; */
 }
-span{
+span {
   display: inline-block;
-  transition:all .5s;
+  transition: all 0.5s;
 }
 
-span.is-active{
+span.is-active {
   transform: translateY(-300px);
-  
 }
 
-
-.ground{
+.ground {
   width: 600px;
   height: 400px;
   background: greenyellow;
@@ -44,10 +40,35 @@ span.is-active{
   position: absolute;
   left: 50%;
   top: 50%;
-  transform: translate(-50%,-50%);
+  transform: translate(-50%, -50%);
 }
 
-.ball{
-  transition: all .3s;
-  pointer-events:none; /* 마우스 클릭을 자체적으로 막는 것 */
+.ball {
+  transition: all 0.3s;
+  pointer-events: none; /* 마우스 클릭을 자체적으로 막는 것 */
+}
+
+.visual {
+  padding: 1rem;
+  background-color: dodgerblue;
+}
+
+.news {
+  padding: 1rem;
+  background-color: orange;
+}
+
+.desc{
+  padding: 1rem;
+  background-color: hotpink;
+}
+
+.pop{
+  width: 30vw;
+  height: 30vw;
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+  background-color: rgba(0,0,0,0.5);
+  display:none;
 }
