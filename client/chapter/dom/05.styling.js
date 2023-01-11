@@ -30,11 +30,35 @@ const first = getNode('.first');
 
 first.style.backgroundColor = 'red';
 
-console.log(first.style.fontSize);
+// console.log(first.style.fontSize);
 
 /* 계산된 스타일 읽기 ------------------------------------------------------- */
 
 let size = getComputedStyle(first).fontSize;
-console.log(size);
+// console.log(size);
 
+
+
+
+
+/* function css(node,prop,value){
+  if(typeof node === 'string'){
+    node = getNode(node);
+  }
+  if(!(prop in document.body.style)){
+    syntaxError('getCSS 함수의 두 번째 인자인 prop은 유효한 css 속성이 아닙니다')
+  }
+  if(!value){
+    return console.log(getComputedStyle(node)[prop]);
+  }
+   node.style[prop]=value;
+} */
+
+
+
+
+// console.log(getCss('.first','font-size'));
+// setCss('.first','color','red');
+css('.first', 'font-size','100px');
+css('.first', 'font-size');
 // - getComputedStyle(element, [pseudoElement]) `읽기 전용`
