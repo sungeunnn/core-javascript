@@ -5,5 +5,8 @@
   "devDependencies": {
     "eslint": "^8.30.0",
     "live-server": "^1.2.2"
+  },
+  "dependencies": {
+    "degit": "^2.8.4"
   }
 }
