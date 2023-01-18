@@ -1,4 +1,4 @@
-import { insertLast, xhrData, xhrPromise } from "./lib/index.js";
+import { insertLast, xhrData, xhrPromise,ggom } from "./lib/index.js";
 
 /* xhrData.get(
   'https://jsonplaceholder.typicode.com/users/1',
@@ -21,4 +21,5 @@ import { insertLast, xhrData, xhrPromise } from "./lib/index.js";
 .catch((err)=>{
   console.log(err);
 }) */
+
 
