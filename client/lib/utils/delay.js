@@ -115,7 +115,7 @@ const defaultOptions = {
 }
 
 
-function delayP(options = {}){
+export function delayP(options = {}){
 
   //2 전개 연산을 이용해 defaultOptions 통으로 복사
   let config = {...defaultOptions};
