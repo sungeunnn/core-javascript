@@ -1,4 +1,5 @@
 /* 
+import { typeError } from './../error/typeError';
 xml http reqeust : x h r 
 1 js가 가지고 있는 XMLHttpRequest을 xhr에 할당
   const xhr = new XMLHttpRequest();
@@ -73,6 +74,8 @@ xml http reqeust : x h r
     이 메서들에게는 xhrData 객체에 값을 할당하여 내가 더 편하게 사용할 수 있게 만들어줌
 
 */
+
+import { typeError } from "../error/typeError.js";
 
 //xhrData
 // 8인자를 여러개 받아야하니까 객체로 바꾸자  method, url, body -> options
@@ -228,3 +231,97 @@ xhrData.get(
   },
 });
  */
+
+
+
+//promise API {lightgrey}
+
+/* 
+ 000 합성과 동시에 구조분해할당 바로 때림 (delay.js promise 2,3 참고 [얕은복사 또 다른 방법 Object.assign])
+*/
+
+
+const defaultOptions = {
+  url:'',
+  method:'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Access-Control-Allow-Origin': '*',
+  },
+  body:null
+}
+
+
+export function xhrPromise(options = {}){
+  
+
+  const xhr = new XMLHttpRequest();
+
+ //000 합성과 동시에 구조분해할당 바로 때림 (delay.js promise 2,3 참고 [얕은복사 또 다른 방법 Object.assign])
+  const {method,url,body,headers} = Object.assign({},defaultOptions,options);
+
+
+  if(!url) typeError('서버와 통신할 url 인자는 반드시 필요합니다.');
+              
+  xhr.open(method,url);
+
+  //return 앞에 위치 왜냐하면, return은 함수를 끝내기 때문에
+  xhr.send(body ? JSON.stringify(body) : null)
+  
+  return new Promise((resolve, reject) => {
+
+    //readystatechange가 일어났을 때 함수가 실행되도록
+    xhr.addEventListener('readystatechange',()=>{
+      const {status, readyState, response} = xhr;
+
+      if(status >= 200 && status < 400){
+         if(readyState === 4){
+           resolve(JSON.parse(response));
+         }
+      }else{
+        reject('💥오류');
+      }
+    })
+  })
+}
+
+
+
+xhrPromise.get = (url) =>{
+  return xhrPromise({
+    url,
+  })
+}
+
+xhrPromise.post = (url,body) =>{
+  return xhrPromise({
+    url,
+    body,
+    method:'POST',
+  })
+}
+
+xhrPromise.put = (url,body) =>{
+  return xhrPromise({
+    url,
+    body,
+    method:'PUT',
+  })
+}
+
+xhrPromise.delete = (url) =>{
+  return xhrPromise({
+    url,
+    method:'DELETE',
+  })
+}
+
+/* xhrPromise(
+ { url:'https://jsonplaceholder.typicode.com/users/1',}
+)
+.then((res)=>{
+  console.log(res);
+})
+.catch((err)=>{
+  console.log(err);
+}) */

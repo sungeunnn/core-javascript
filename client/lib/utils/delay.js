@@ -5,7 +5,7 @@ import { isNumber, isObject } from "./typeOf.js";
 
 const first = getNode('.first');
 
-console.log(first);
+// console.log(first);
 
 
 function delay(callback,timeout = 1000){
@@ -137,7 +137,7 @@ function delayP(options = {}){
   return new Promise((resolve, reject) => {
     
     setTimeout(() => {
-      !shouldReject ? resolve(console.log(data)) : reject(errorMessage)
+      !shouldReject ? resolve(data) : reject(errorMessage)
     }, timeout);
   })
 }
@@ -153,9 +153,10 @@ function delayP(options = {}){
 })
  */
 
-delayP(3000).then((res)=>{
+/* delayP(3000).then((res)=>{
   console.log(res);
 })
+ */
 
 
 
@@ -163,4 +164,57 @@ delayP(3000).then((res)=>{
 
 
 
+/* async await  */ 
+/* 
+ 함수 앞에 async를 붙이면 결과값이 return 될 때 promise 내부프러퍼티와 같이 값이 반환 된다
+ async : 일반 함수를  promise 를 반환하는 함수로 만든다
 
+ await 을 사용하면 결과 값이 담긴다.
+await 1) promise가 반환하는 result 가져오기
+      2) 코드 실행 흐름 제어 (기다려) --> ⭐ 원치않는 에러가 발생하는 걸 막아줄 수 있다
+     
+
+즉, async //promise 내부 프로퍼티 형식 resolve() =[[fulfilled]], reject() = [[ rejected ]] 
+    await 은 결과 값 (result value === result()의 return 값)  
+
+async - await 패턴을 사용하는 경우엔 reject는 정의가 안되어 있으니까 try catch를 사용
+ */
+
+
+async function delayA(){
+  return '⭐완료'
+}
+
+let result = delayA();
+
+// console.log(result);
+
+
+//라면끓이기 함수로 await 동작 체감
+async function 라면끓이기(){
+ try{
+  await delayP()
+  console.log('물넣기');
+  
+  await delayP()
+  console.log('스프넣기');
+
+  await delayP()
+  console.log('면넣기');
+
+  await delayP()
+  console.log('계란넣기');
+
+  // throw new Error('계란 껍질 들어감');
+
+
+  await delayP()
+  console.log('그릇담기');
+  console.log('완성')
+
+ } catch(err){
+  console.log(err);
+ }
+}
+
+// 라면끓이기()
