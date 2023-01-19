@@ -10,6 +10,7 @@ export * from './showAlert.js'
 export * from './bindEvent.js'
 export * from './getInputValue.js'
 export * from './clearContents.js'
+export * from './userList.js'
 export * from './controlElement.js'
 
 

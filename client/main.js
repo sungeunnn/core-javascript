@@ -1,30 +1,22 @@
-import { insertLast, xhrData, xhrPromise,ggom } from "./lib/index.js";
-
-/* xhrData.get(
-  'https://jsonplaceholder.typicode.com/users/1',
-  (res) => {
-    //화면에 뿌려줌
-    insertLast('body', JSON.stringify(res))
-  },
-  (err) => {
-    //화면에 뿌려줌
-    insertLast('body','데이터 로딩에 실패했습니다.')
-  }
-) */
+import { insertLast, ggom, renderUserCard, getNode } from "./lib/index.js";
 
 
-/* xhrPromise
-.get('https://jsonplaceholder.typicode.com/users/1')
-.then((res)=>{
-  insertLast(document.body,JSON.stringify(res));
-})
-.catch((err)=>{
-  console.log(err);
-}) */
-
-async function render(){
+const userCardContainer = getNode('.user-card-inner');
+//rendingUserList
+async function rendingUserList(){
   let response = await ggom.get('https://jsonplaceholder.typicode.com/users/1')
-  console.log(response.data);
+  let userData=response.data;
+  
+  
 
+ renderUserCard(userCardContainer, userData)
 }
-render()
+rendingUserList()
+
+
+
+
+
+
+//ajax get user List
+ 
